@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
-study_data = pd.read_csv("studyflow_dummy_dataset.csv")
+study_data = pd.read_csv("study_focus_2years.csv")
 # --- Use the provided dataset named 'study_data' ---
 data = study_data.copy()
 

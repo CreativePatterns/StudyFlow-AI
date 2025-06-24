@@ -7,14 +7,17 @@ from sklearn.model_selection import cross_val_score
 import matplotlib.pyplot as plt
 
 # --- Load data ---
-study_data = pd.read_csv("study_focus.csv")  # Replace with your dataset path
+study_data = pd.read_csv("study_focus.csv")
 
-# --- Feature engineering ---
+# --- convert numerical values into 2 categories for training ---
 def label_focus(val):
     return "Low" if val < 4.5 else "High"
 
 # --- Loose balancing function ---
 def balance_focus_classes_loose(df, target_col='focus_bin', ratio=1.5):
+    """"loosely balances out the focus_bin column so that we can include the most data in the dataset,
+     since if it is a perfect 50/50 you only get to work with a very small portion of the dataset."""
+
     counts = df[target_col].value_counts()
     min_count = counts.min()
     balanced_parts = []
@@ -27,22 +30,25 @@ def balance_focus_classes_loose(df, target_col='focus_bin', ratio=1.5):
     balanced_df = pd.concat(balanced_parts).sample(frac=1, random_state=42).reset_index(drop=True)
     return balanced_df
 
+# --- feature engineering ---
 study_data["focus_bin"] = study_data["focus_level"].apply(label_focus)
 study_data["mood_x_sleep"] = study_data["mood_score"] * study_data["sleep_hours"]
 study_data["study_efficiency"] = study_data["study_hours"] / (study_data["sleep_hours"] + 1)
 
-
+# balance out the dataset by reducing its size based on the [focus_bin] column
 balanced_study_data = balance_focus_classes_loose(study_data, target_col='focus_bin', ratio=2)
 
-# --- Feature selection ---
+# --- Feature selection for training ---
 features = [
     "study_hours", "mood_score", "sleep_hours",
     "journaling", "social_interaction", "mood_x_sleep", "study_efficiency"
 ]
+
+
 X = balanced_study_data[features]
 y = balanced_study_data["focus_bin"]
 
-# --- Scale features ---
+# --- Scale features so that they are in uniform scale ---
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 

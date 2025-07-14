@@ -1,30 +1,48 @@
-# StudyFlow-AI Overview:
+# 📚 StudyFlow-AI: Your Focus, Decoded.
 
-This project implements a machine learning model to predict daily focus levels based on various lifestyle and study-related features such as sleep hours, mood score, study hours, and journaling habits. The goal is to provide users with actionable insights into their study patterns and potential burnout risks.
+Welcome to **StudyFlow-AI**, a machine learning–powered companion that helps you understand how your daily habits — like sleep, mood, study time, and journaling — shape your focus.
 
-# What the Model Does:
+It’s more than just a predictor. It’s a quiet observer, gently alerting you to potential burnout and nudging you toward balance. Built with **Random Forests**, **Streamlit**, and a lot of intention.
 
-- Predicts Focus Level: Classifies daily focus into categories (Low, Medium, High) using a Random Forest classifier trained on historical data.
+---
 
-- Burnout Detection: Flags potential burnout by monitoring recent low-focus streaks.
+## What It Does
 
-- Personalized Suggestions: Offers task recommendations based on the user's current mood score.
+- 🧠 **Predicts Daily Focus**  
+  Classifies your focus as **Low**, **Medium**, or **High** using your self-tracked inputs.
 
-# Technical Approach:
+- 🚨 **Detects Burnout Risk**  
+  Flags streaks of low focus and encourages you to pause before the crash.
 
-- Data Preparation: Feature engineering included creating interaction terms (e.g., study hours × sleep hours) and categorical labeling of focus levels.
+- 🗺️ **Offers Personalized Suggestions**  
+  Uses your mood score to recommend tasks aligned with your current emotional energy.
 
-- Model Training: The Random Forest classifier was trained on selected features after preprocessing.
+---
 
-- Dashboard Integration: Streamlit was used to build an interactive web app where users can input daily data and receive real-time focus predictions and guidance.
+## Why This Project?
 
-# Challenges & Solutions:
+This wasn’t just about algorithms — it was about reclaiming mental clarity.  
+The process began as a way to **understand personal energy rhythms** and transformed into a tool to support students and self-learners through the ebb and flow of motivation.
 
-- Environment Setup: Installing and configuring Streamlit for local development required careful troubleshooting, including resolving PATH issues on Windows.
+> _"When the calendar fails you, maybe the data can guide you."_
 
-- Feature Selection: Balancing model complexity and interpretability involved iterative testing with different feature subsets to improve prediction accuracy.
+---
 
-- User Interaction: Designing a user-friendly interface while maintaining prediction reliability was addressed through thoughtful UI elements and input validation.
+## Technologies Used
 
-# Developer Notes:
-This project was a mix of learning and patience. It needed steady effort and the flexibility to adjust when things got tough. Taking time to reflect helped turn challenges into progress and kept the work moving forward.
+| Feature                     | Stack                         |
+|----------------------------|-------------------------------|
+| Model                      | `RandomForestClassifier` (sklearn) |
+| Data Interaction           | `pandas`, `numpy`             |
+| Visualization & UI         | `streamlit`, `matplotlib`     |
+| Burnout Tracking           | Custom streak detection logic |
+| Deployment   | Streamlit Cloud / GitHub Pages |
+
+---
+
+## 📦 Setup Instructions
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/your-username/studyflow-ai.git
+   cd studyflow-ai

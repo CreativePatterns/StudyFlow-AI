@@ -3,8 +3,7 @@
 This is a lightweight Streamlit-based web app that predicts your daily **focus level** based on lifestyle factors like mood, sleep, study habits, and journaling. It's built for students, self-learners, and anyone looking to track their productivity mindset and catch burnout before it sneaks up.
 
 ### 🌐 Live App:
-Try it here: [https://your-username-studyflow.streamlit.app](https://your-username-studyflow.streamlit.app)  
-*(replace with your actual URL once deployed)*
+Try it here: https://studyflow-ai.streamlit.app/
 
 ---
 

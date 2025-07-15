@@ -1,48 +1,70 @@
-# 📚 StudyFlow-AI: Your Focus, Decoded.
+# 🎯 StudyFlow AI – Daily Focus Predictor
 
-Welcome to **StudyFlow-AI**, a machine learning–powered companion that helps you understand how your daily habits — like sleep, mood, study time, and journaling — shape your focus.
+This is a lightweight Streamlit-based web app that predicts your daily **focus level** based on lifestyle factors like mood, sleep, study habits, and journaling. It's built for students, self-learners, and anyone looking to track their productivity mindset and catch burnout before it sneaks up.
 
-It’s more than just a predictor. It’s a quiet observer, gently alerting you to potential burnout and nudging you toward balance. Built with **Random Forests**, **Streamlit**, and a lot of intention.
-
----
-
-## What It Does
-
-- 🧠 **Predicts Daily Focus**  
-  Classifies your focus as **Low**, **Medium**, or **High** using your self-tracked inputs.
-
-- 🚨 **Detects Burnout Risk**  
-  Flags streaks of low focus and encourages you to pause before the crash.
-
-- 🗺️ **Offers Personalized Suggestions**  
-  Uses your mood score to recommend tasks aligned with your current emotional energy.
+### 🌐 Live App:
+Try it here: [https://your-username-studyflow.streamlit.app](https://your-username-studyflow.streamlit.app)  
+*(replace with your actual URL once deployed)*
 
 ---
 
-## Why This Project?
+## 🔍 What It Does
 
-This wasn’t just about algorithms — it was about reclaiming mental clarity.  
-The process began as a way to **understand personal energy rhythms** and transformed into a tool to support students and self-learners through the ebb and flow of motivation.
+- **Predicts Focus**  
+  Using a trained logistic regression model, the app predicts whether your focus is **High** or **Low**.
 
-> _"When the calendar fails you, maybe the data can guide you."_
+- **Considers Key Lifestyle Signals**  
+  Including mood score, sleep hours, journaling, and social interaction.
 
----
-
-## Technologies Used
-
-| Feature                     | Stack                         |
-|----------------------------|-------------------------------|
-| Model                      | `RandomForestClassifier` (sklearn) |
-| Data Interaction           | `pandas`, `numpy`             |
-| Visualization & UI         | `streamlit`, `matplotlib`     |
-| Burnout Tracking           | Custom streak detection logic |
-| Deployment   | Streamlit Cloud / GitHub Pages |
+- **Provides Feedback**  
+  Shows predictions instantly, with optional confusion matrix + accuracy metrics for nerds like us 😎
 
 ---
 
-## 📦 Setup Instructions
+## 🧪 Tech Stack
 
-1. **Clone the repo**
+- **Frontend/UI**: Streamlit  
+- **Backend Model**: Scikit-learn's Logistic Regression  
+- **Data Engineering**: Custom interaction terms + loose balancing for class distribution  
+- **Deployment**: [Streamlit Community Cloud](https://streamlit.io/cloud) *(free and easy!)*
+
+---
+
+## 🧠 Feature Engineering
+
+We use thoughtful feature combinations to capture daily dynamics:
+- `mood_x_sleep` = mood score × sleep hours
+- `study_efficiency` = study hours / (sleep hours + 1)
+
+We also **loosely balance** the dataset with a custom function that keeps as much data as possible without letting one class dominate.
+
+---
+
+## ⚙️ How It Works (Simplified Flow)
+
+1. User inputs daily metrics into sliders/checks.
+2. App calculates extra interaction terms.
+3. Logistic regression model makes a prediction.
+4. App shows focus level + optional confusion matrix & accuracy.
+   
+---
+
+## 📊 Dataset
+
+The app uses a local CSV file `study_focus.csv` for training.  
+It’s a synthetic but realistic dataset based on:
+- sleep hours
+- mood score
+- study time
+- journaling (yes/no)
+- social interaction levels
+- and focus score labeled as High/Low
+
+---
+
+## 🛠️ How to Run Locally
+
+1. Clone the repo:
    ```bash
    git clone https://github.com/your-username/studyflow-ai.git
    cd studyflow-ai

@@ -25,7 +25,7 @@ Try it here: https://studyflow-ai.streamlit.app/
 - **Frontend/UI**: Streamlit  
 - **Backend Model**: Scikit-learn's Logistic Regression  
 - **Data Engineering**: Custom interaction terms + loose balancing for class distribution  
-- **Deployment**: [Streamlit Community Cloud](https://streamlit.io/cloud) *(free and easy!)*
+- **Deployment**: [Streamlit Community Cloud](https://streamlit.io/cloud)
 
 ---
 
